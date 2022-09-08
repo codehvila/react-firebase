@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import "./App.css";
 import Title from "./components/Title";
 
@@ -36,10 +36,10 @@ function App() {
       )}
       {showEvents &&
         events.map((event) => (
-          <div key={event.id}>
+          <Fragment key={event.id}>
             <p>{event.title}</p>
             <button onClick={() => handleClick(event.id)}>delete &uarr;</button>
-          </div>
+          </Fragment>
         ))}
       {events.length === 0 && showEvents && <p>No events to show!</p>}
     </div>
