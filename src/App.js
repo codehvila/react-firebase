@@ -31,9 +31,10 @@ function App() {
         events.map((event) => (
           <div key={event.id}>
             <p>{event.title}</p>
-            <button onClick={() => handleClick(event.id)}>delete</button>
+            <button onClick={() => handleClick(event.id)}>delete &uarr;</button>
           </div>
         ))}
+      {events.length === 0 && showEvents && <p>No events to show!</p>}
     </div>
   );
 }
