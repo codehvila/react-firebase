@@ -9,6 +9,7 @@ function App() {
     { title: "This game is over", id: 4 },
     { title: "A key has been pressed to play again", id: 5 },
   ]);
+  const [showEvents, setShowEvents] = useState(true);
 
   const handleClick = (id) => {
     setEvents((prevEvents) => {
@@ -20,12 +21,19 @@ function App() {
 
   return (
     <div className="App">
-      {events.map((event) => (
-        <div key={event.id}>
-          <p>{event.title}</p>
-          <button onClick={() => handleClick(event.id)}>delete</button>
-        </div>
-      ))}
+      {!showEvents && (
+        <button onClick={() => setShowEvents(true)}>Show Events</button>
+      )}
+      {showEvents && (
+        <button onClick={() => setShowEvents(false)}>Hide Events</button>
+      )}
+      {showEvents &&
+        events.map((event) => (
+          <div key={event.id}>
+            <p>{event.title}</p>
+            <button onClick={() => handleClick(event.id)}>delete</button>
+          </div>
+        ))}
     </div>
   );
 }
