@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Title from "./components/Title";
 
 function App() {
   const [events, setEvents] = useState([
@@ -19,13 +20,19 @@ function App() {
     });
   };
 
+  const title = "Events List";
+  const subtitle = "Latest events for you";
+
   return (
     <div className="App">
+      <Title title={title} subtitle={subtitle} />
       {!showEvents && (
-        <button onClick={() => setShowEvents(true)}>Show Events</button>
+        <button onClick={() => setShowEvents(true)}>&oplus; Show Events</button>
       )}
       {showEvents && (
-        <button onClick={() => setShowEvents(false)}>Hide Events</button>
+        <button onClick={() => setShowEvents(false)}>
+          &otimes; Hide Events
+        </button>
       )}
       {showEvents &&
         events.map((event) => (

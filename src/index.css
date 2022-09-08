@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  font-size: 1.1rem;
+}
+
+.title {
+  padding: 2rem;
+  background-color: beige;
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+.subtitle {
+  color: #444;
+  margin-bottom: 3rem;
+}
