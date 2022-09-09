@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import "./App.css";
+import Modal from "./components/Modal";
 import Title from "./components/Title";
 
 function App() {
@@ -42,6 +43,21 @@ function App() {
           </Fragment>
         ))}
       {events.length === 0 && showEvents && <p>No events to show!</p>}
+
+      {/* <Modal>
+        <h2>Nicolas, You Just Logged Out</h2>
+        <p>Come back soon!</p>
+      </Modal> */}
+      <Modal modalIsOpen={true}>
+        <h2>Terms and Conditions</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nobis
+          beatae, molestias earum iste aperiam, eligendi soluta iure unde porro
+          recusandae laboriosam incidunt repellendus dignissimos in dicta,
+          facilis mollitia consectetur.
+        </p>
+        <a href="/#">Find out more...</a>
+      </Modal>
     </div>
   );
 }
