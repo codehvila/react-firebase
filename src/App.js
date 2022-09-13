@@ -1,7 +1,8 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Modal from "./components/Modal";
 import Title from "./components/Title";
+import EventLIst from "./components/EventList";
 
 function App() {
   const [events, setEvents] = useState([
@@ -35,19 +36,10 @@ function App() {
           &otimes; Hide Events
         </button>
       )}
-      {showEvents &&
-        events.map((event) => (
-          <Fragment key={event.id}>
-            <p>{event.title}</p>
-            <button onClick={() => handleClick(event.id)}>delete &uarr;</button>
-          </Fragment>
-        ))}
+      {showEvents && <EventLIst events={events} handleClick={handleClick} />}
+
       {events.length === 0 && showEvents && <p>No events to show!</p>}
 
-      {/* <Modal>
-        <h2>Nicolas, You Just Logged Out</h2>
-        <p>Come back soon!</p>
-      </Modal> */}
       <Modal modalIsOpen={true}>
         <h2>Terms and Conditions</h2>
         <p>
