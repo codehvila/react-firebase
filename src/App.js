@@ -13,12 +13,19 @@ function App() {
     { title: "A key has been pressed to play again", id: 5 },
   ]);
   const [showEvents, setShowEvents] = useState(true);
+  const [showModal, setShowModal] = useState(true);
 
   const handleClick = (id) => {
     setEvents((prevEvents) => {
       return prevEvents.filter((prevEvent) => {
         return id !== prevEvent.id;
       });
+    });
+  };
+
+  const handleModalClose = () => {
+    setShowModal((prevShowModal) => {
+      return !prevShowModal;
     });
   };
 
@@ -40,16 +47,18 @@ function App() {
 
       {events.length === 0 && showEvents && <p>No events to show!</p>}
 
-      <Modal modalIsOpen={true}>
-        <h2>Terms and Conditions</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nobis
-          beatae, molestias earum iste aperiam, eligendi soluta iure unde porro
-          recusandae laboriosam incidunt repellendus dignissimos in dicta,
-          facilis mollitia consectetur.
-        </p>
-        <a href="/#">Find out more...</a>
-      </Modal>
+      {showModal && (
+        <Modal handleModalClose={handleModalClose}>
+          <h2>Terms and Conditions</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+            nobis beatae, molestias earum iste aperiam, eligendi soluta iure
+            unde porro recusandae laboriosam incidunt repellendus dignissimos in
+            dicta, facilis mollitia consectetur.
+          </p>
+          <a href="/#">Find out more...</a>
+        </Modal>
+      )}
     </div>
   );
 }

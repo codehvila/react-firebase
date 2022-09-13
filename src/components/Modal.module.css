@@ -11,10 +11,6 @@
   background: rgba(0,0,0,0.4);
 }
 
-.modalBackdropClosed {
-  display: none;
-}
-
 .modal {
   padding: 30px 60px;
   max-width: 480px;
