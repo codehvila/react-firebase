@@ -29,20 +29,31 @@ function App() {
     });
   };
 
+  const handleNewEventClick = () => {
+    setShowModal((prevShowModal) => {
+      return !prevShowModal;
+    });
+  };
+
   const title = "Events List";
   const subtitle = "Latest events for you";
 
   return (
     <div className="App">
       <Title title={title} subtitle={subtitle} />
-      {!showEvents && (
-        <button onClick={() => setShowEvents(true)}>&oplus; Show Events</button>
-      )}
-      {showEvents && (
-        <button onClick={() => setShowEvents(false)}>
-          &otimes; Hide Events
-        </button>
-      )}
+      <div className="eventToolNavBar">
+        {!showEvents && (
+          <button onClick={() => setShowEvents(true)}>
+            &oplus; Show Events
+          </button>
+        )}
+        {showEvents && (
+          <button onClick={() => setShowEvents(false)}>
+            &otimes; Hide Events
+          </button>
+        )}
+        <button onClick={handleNewEventClick}> &#43; Add Event</button>
+      </div>
       {showEvents && <EventLIst events={events} handleClick={handleClick} />}
 
       {events.length === 0 && showEvents && <p>No events to show!</p>}

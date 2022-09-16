@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.eventToolNavBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.eventToolNavBar button {
+  padding: 0.3rem 0.4rem 0.4rem 0.4rem;
+}
