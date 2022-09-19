@@ -7,18 +7,22 @@ import AddEventForm from "./components/AddEventForm";
 
 function App() {
   const [events, setEvents] = useState([
-    { title: "My birthday has passed", id: 1 },
-    { title: "The traffic light turned red", id: 2 },
-    { title: "The supermarket just opened", id: 3 },
-    { title: "This game is over", id: 4 },
-    { title: "A key has been pressed to play again", id: 5 },
+    { title: "My birthday has passed", date: "", id: 1 },
+    { title: "The traffic light turned red", date: "", id: 2 },
+    { title: "The supermarket just opened", date: "", id: 3 },
+    { title: "This game is over", date: "", id: 4 },
+    { title: "A key has been pressed to play again", date: "", id: 5 },
   ]);
   const [showEvents, setShowEvents] = useState(true);
   const [showModal, setShowModal] = useState(true);
 
-  const handleAddEvent = () => {
-    // const [event, setEvent] = useState({ title: "", date: "", id: null });
-    console.log("Adding Event to Events List!");
+  const handleAddEvent = (event) => {
+    setEvents((prevEvents) => {
+      return [...prevEvents, event];
+    });
+    setShowModal((prevShowModal) => {
+      return !prevShowModal;
+    });
   };
 
   const handleDeleteClick = (id) => {
