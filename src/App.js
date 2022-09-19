@@ -3,6 +3,7 @@ import "./App.css";
 import Modal from "./components/Modal";
 import Title from "./components/Title";
 import EventLIst from "./components/EventList";
+import AddEventForm from "./components/AddEventForm";
 
 function App() {
   const [events, setEvents] = useState([
@@ -15,7 +16,12 @@ function App() {
   const [showEvents, setShowEvents] = useState(true);
   const [showModal, setShowModal] = useState(true);
 
-  const handleClick = (id) => {
+  const handleAddEvent = () => {
+    // const [event, setEvent] = useState({ title: "", date: "", id: null });
+    console.log("Adding Event to Events List!");
+  };
+
+  const handleDeleteClick = (id) => {
     setEvents((prevEvents) => {
       return prevEvents.filter((prevEvent) => {
         return id !== prevEvent.id;
@@ -23,7 +29,8 @@ function App() {
     });
   };
 
-  const handleModalClose = () => {
+  const handleModalClose = (e) => {
+    e.preventDefault();
     setShowModal((prevShowModal) => {
       return !prevShowModal;
     });
@@ -54,20 +61,15 @@ function App() {
         )}
         <button onClick={handleNewEventClick}> &#43; Add Event</button>
       </div>
-      {showEvents && <EventLIst events={events} handleClick={handleClick} />}
+      {showEvents && (
+        <EventLIst events={events} handleClick={handleDeleteClick} />
+      )}
 
       {events.length === 0 && showEvents && <p>No events to show!</p>}
 
       {showModal && (
         <Modal handleModalClose={handleModalClose}>
-          <h2>Terms and Conditions</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-            nobis beatae, molestias earum iste aperiam, eligendi soluta iure
-            unde porro recusandae laboriosam incidunt repellendus dignissimos in
-            dicta, facilis mollitia consectetur.
-          </p>
-          <a href="/#">Find out more...</a>
+          <AddEventForm addEvent={handleAddEvent} />
         </Modal>
       )}
     </div>

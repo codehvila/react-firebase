@@ -1,0 +1,26 @@
+.AddEventForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.AddEventForm input {
+  width: 100%;
+  height: 1.5rem;
+}
+
+.AddEventForm button {
+  width: 100%;
+  height: 1.9rem;
+  margin-top: 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  border-radius: 0;
+}
+
+.AddEventForm span {
+  text-align: left;
+  font-size: 1.2rem;
+}
